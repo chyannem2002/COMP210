@@ -40,10 +40,16 @@ public class BST implements BSTInt{
     boolean searchRec(Node node, int value){
         if (node._value == value)
             return true;
-        // TBD
-
-
-        return false;
+        if (node._value > value) {
+            if (node._left != null)
+                return searchRec(node._left, value);
+            else
+                return false;
+        }
+        if (node._right != null)
+            return searchRec(node._right, value);
+        else
+            return false;
     }
 
     @Override
